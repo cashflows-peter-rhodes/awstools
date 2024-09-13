@@ -1,0 +1,1 @@
+aws route53 list-resource-record-sets --hosted-zone-id ZKMYA76UO56MB --query "ResourceRecordSets[?Type=='TXT']" --output json | jq '.[] | select(.ResourceRecords[].Value | contains("DMARC")) | .Name, .ResourceRecords[].Value'
